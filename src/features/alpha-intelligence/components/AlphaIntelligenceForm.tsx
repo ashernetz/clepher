@@ -1,9 +1,7 @@
-import { Select, Input, Button, Card, Space } from "antd";
+import { Input, Button, Card, Space } from "antd";
 import { useEffect, useState } from "react";
 import { getAlphaFunctionByUrlParam } from "../utils/UtilFunctions";
-import { buildURL } from "../../../shared/utils/generalFunctions";
 import AlphaVantageService from "../../../shared/services/alpha-vantage.service";
-const { Option } = Select;
 
 const AlphaIntelligenceForm = ({ setStockData, alphaFunction }: any) => {
   const alphaService = new AlphaVantageService();
