@@ -1,0 +1,50 @@
+[
+  {
+    "title": "time Stock",
+    "id": "core-stock",
+    "subMenus": [
+      {
+        "title": "Intraday",
+        "link": "intraday"
+      },
+      {
+        "title": "Daily",
+        "link": "daily"
+      },
+      {
+        "title": "Daily Adjusted",
+        "link": "daily-adjusted"
+      },
+      {
+        "title": "Weekly",
+        "link": "weekly"
+      },
+      {
+        "title": "Weekly Adjusted",
+        "link": "weekly-adjusted"
+      },
+      {
+        "title": "Monthly",
+        "link": "monthly"
+      },
+      {
+        "title": "Monthly Adjusted",
+        "link": "monthly-adjusted"
+      }
+    ]
+  },
+  {
+    "title": "alpha intelligence",
+    "id": "alpha-intelligence",
+    "subMenus": [
+      {
+        "title": "News & Sentiment",
+        "link": "news-sentiment"
+      },
+      {
+        "title": "Top Gainers & Losers",
+        "link": "tops-gainers"
+      }
+    ]
+  }
+]

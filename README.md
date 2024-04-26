@@ -1,46 +1,133 @@
-# Getting Started with Create React App
+# Api Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Information
 
-## Available Scripts
+> [API Information](https://www.alphavantage.co/documentation/#)
 
-In the project directory, you can run:
+> [Alpha Ventage Interface Api](https://github.com/zackurben/alphavantage)
 
-### `npm start`
+> API Key: RIBXT3XYLI69PC0Q  
+> API KEY: 329DKQXX4JMERPWT  
+> AX2W5080PGJULBPX
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> Everything works in promises
 
-### `npm test`
+```sh
+// Simple examples
+alpha.data.intraday(`msft`).then((data) => {
+  console.log(data);
+});
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+alpha.forex.rate('btc', 'usd').then((data) => {
+  console.log(data);
+});
 
-### `npm run build`
+alpha.crypto.daily('btc', 'usd').then((data) => {
+  console.log(data);
+});
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+alpha.technical.sma(`msft`, `daily`, 60, `close`).then((data) => {
+  console.log(data);
+});
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+alpha.experimental('CRYPTO_INTRADAY', { symbol: 'ETH', market: 'USD', interval: '5min' })).then((data) => {
+  console.log(data);
+});
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Data
 
-### `npm run eject`
+```sh
+alpha.data.intraday(symbol, outputsize, datatype, interval);
+alpha.data.daily(symbol, outputsize, datatype, interval);
+alpha.data.daily_adjusted(symbol, outputsize, datatype, interval);
+alpha.data.weekly(symbol, outputsize, datatype, interval);
+alpha.data.weekly_adjusted(symbol, outputsize, datatype, interval);
+alpha.data.monthly(symbol, outputsize, datatype, interval);
+alpha.data.monthly_adjusted(symbol, outputsize, datatype, interval);
+alpha.data.quote(symbol, outputsize, datatype, interval);
+alpha.data.search(keywords);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Forex
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+alpha.forex.rate(from_currency, to_currency);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Crypto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+alpha.crypto.daily(symbol, market);
+alpha.crypto.weekly(symbol, market);
+alpha.crypto.monthly(symbol, market);
+```
 
-## Learn More
+## technicals
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+alpha.technical.sma(symbol, interval, time_period, series_type);
+alpha.technical.ema(symbol, interval, time_period, series_type);
+alpha.technical.wma(symbol, interval, time_period, series_type);
+alpha.technical.dema(symbol, interval, time_period, series_type);
+alpha.technical.tema(symbol, interval, time_period, series_type);
+alpha.technical.trima(symbol, interval, time_period, series_type);
+alpha.technical.kama(symbol, interval, time_period, series_type);
+alpha.technical.mama(symbol, interval, series_type, fastlimit, slowlimit);
+alpha.technical.t3(symbol, interval, time_period, series_type);
+alpha.technical.macd(symbol, interval, series_type, fastperiod, slowperiod, signalperiod);
+alpha.technical.macdext(
+  symbol,
+  interval,
+  series_type,
+  fastperiod,
+  slowperiod,
+  signalperiod,
+  fastmatype,
+  slowmatype,
+  signalmatype
+);
+alpha.technical.stoch(symbol, interval, fastkperiod, slowkperiod, slowdperiod, slowkmatype, slowdmatype);
+alpha.technical.stochf(symbol, interval, fastkperiod, fastdperiod, fastdmatype);
+alpha.technical.rsi(symbol, interval, time_period, series_type);
+alpha.technical.stochrsi(symbol, interval, time_period, series_type, fastkperiod, slowdperiod, fastdmatype);
+alpha.technical.willr(symbol, interval, time_period);
+alpha.technical.adx(symbol, interval, time_period);
+alpha.technical.adxr(symbol, interval, time_period);
+alpha.technical.apo(symbol, interval, series_type, fastperiod, slowperiod, matype);
+alpha.technical.ppo(symbol, interval, series_type, fastperiod, slowperiod, matype);
+alpha.technical.mom(symbol, interval, time_period, series_type);
+alpha.technical.bop(symbol, interval);
+alpha.technical.cci(symbol, interval, time_period);
+alpha.technical.cmo(symbol, interval, time_period, series_type);
+alpha.technical.roc(symbol, interval, time_period, series_type);
+alpha.technical.rocr(symbol, interval, time_period, series_type);
+alpha.technical.aroon(symbol, interval, time_period);
+alpha.technical.aroonosc(symbol, interval, time_period);
+alpha.technical.mfi(symbol, interval, time_period);
+alpha.technical.trix(symbol, interval, time_period, series_type);
+alpha.technical.ultosc(symbol, interval, timeperiod1, timeperiod2, timeperiod3);
+alpha.technical.dx(symbol, interval, time_period);
+alpha.technical.minus_di(symbol, interval, time_period);
+alpha.technical.plus_di(symbol, interval, time_period);
+alpha.technical.minus_dm(symbol, interval, time_period);
+alpha.technical.plus_dm(symbol, interval, time_period);
+alpha.technical.bbands(symbol, interval, time_period, series_type, nbdevup, nbdevdn);
+alpha.technical.midpoint(symbol, interval, time_period, series_type);
+alpha.technical.midprice(symbol, interval, time_period);
+alpha.technical.sar(symbol, interval, acceleration, maximum);
+alpha.technical.trange(symbol, interval);
+alpha.technical.atr(symbol, interval, time_period);
+alpha.technical.natr(symbol, interval, time_period);
+alpha.technical.ad(symbol, interval);
+alpha.technical.adosc(symbol, interval, fastperiod, slowperiod);
+alpha.technical.obv(symbol, interval);
+alpha.technical.ht_trendline(symbol, interval, series_type);
+alpha.technical.ht_sine(symbol, interval, series_type);
+alpha.technical.ht_trendmode(symbol, interval, series_type);
+alpha.technical.ht_dcperiod(symbol, interval, series_type);
+alpha.technical.ht_dcphase(symbol, interval, series_type);
+alpha.technical
+```
