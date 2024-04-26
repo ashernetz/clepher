@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Col, Card, Statistic, Divider } from "antd";
-import CoreStockService from "../services/coreStock.service";
 import CoreStockForm from "../components/CoreStockForm";
 import CoreStockInfo from "../components/coreStockInfo";
 import { getTimeSeriesData, getTimeStockTitle } from "../utils/UtilFunctions";
